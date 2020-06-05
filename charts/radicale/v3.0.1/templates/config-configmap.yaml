@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: radicale-config
+  labels:
+    app: {{ template "radicale.name" . }}
+    chart: {{ template "radicale.chart" . }}
+    release: {{ .Release.Name | quote }}
+    heritage: {{ .Release.Service | quote }}
+data:
+  config: |-
+    [server]
+    hosts = 0.0.0.0:{{ .Values.service.port }}, [::]:{{ .Values.service.port }}
+
+    [auth]
+    type = {{ .Values.radicale.auth_type }}
+    htpasswd_filename = /etc/radicale/users
+    htpasswd_encryption = {{ .Values.radicale.encryption_method }}
+
+    [storage]
+    filesystem_folder = {{ .Values.persistence.mount_point }}
+
+    [rights]
+    type = {{ .Values.radicale.rights_type }}
+    file = /etc/radicale/rights
+
+    [logging]
+    level = {{ .Values.radicale.log_level }}
+    mask_passwords = True
+

@@ -1,0 +1,29 @@
+apiVersion: v2
+name: radicale
+description: Free and Open-Source CalDAV and CardDAV Server
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application.
+appVersion: 3.0.1
+
+home: https://radicale.org/
+icon: https://github.com/buhl/dh-images/raw/master/radicale/logo.png
+sources:
+  - https://github.com/buhl/helm3-charts/tree/master/radicale
+maintainers:
+  - name: buhl
+    email: 221842+buhl@users.noreply.github.com

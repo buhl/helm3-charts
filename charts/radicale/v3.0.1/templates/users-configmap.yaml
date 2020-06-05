@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: radicale-users
+  labels:
+    app: {{ template "radicale.name" . }}
+    chart: {{ template "radicale.chart" . }}
+    release: {{ .Release.Name | quote }}
+    heritage: {{ .Release.Service | quote }}
+data:
+  users: |-
+    user1:password1
